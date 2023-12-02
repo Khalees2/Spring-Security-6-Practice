@@ -34,7 +34,7 @@ public class SpringSecBasicAuthenticationProvider implements AuthenticationProvi
         if(user!=null && user.getPassword().equals(password)){
             List<GrantedAuthority> authorities = new ArrayList<>();
             //add all the roles of this user
-            authorities.add(new SimpleGrantedAuthority(user.getUserId()));
+            authorities.add(new SimpleGrantedAuthority(user.getRoles().get(0)));
             return new UsernamePasswordAuthenticationToken(userId,password,authorities);
         }else{
             throw new BadCredentialsException("Invalid Password");
