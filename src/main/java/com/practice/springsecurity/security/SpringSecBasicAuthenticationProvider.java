@@ -33,7 +33,7 @@ public class SpringSecBasicAuthenticationProvider implements AuthenticationProvi
         //We should not be matching raw password.
         if(user!=null && user.getPassword().equals(password)){
             List<GrantedAuthority> authorities = new ArrayList<>();
-            //add all the roles of this user
+            //add all the roles of this user. But here for dev purpose we are adding first role.
             authorities.add(new SimpleGrantedAuthority(user.getRoles().get(0)));
             return new UsernamePasswordAuthenticationToken(userId,password,authorities);
         }else{
