@@ -8,7 +8,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-public class SecurityConfiguration {
+public class SpringSecBasicConfiguration {
+    //Below Bean configuration is implemented to demonstrate how we can allow/specify URL patterns before authentication happens.
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> {
