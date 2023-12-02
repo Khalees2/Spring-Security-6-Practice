@@ -2,7 +2,6 @@ package com.practice.springsecurity.security;
 
 import com.practice.springsecurity.model.User;
 import com.practice.springsecurity.service.UserService;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,6 +33,7 @@ public class SpringSecBasicAuthenticationProvider implements AuthenticationProvi
         //We should not be matching raw password.
         if(user!=null && user.getPassword().equals(password)){
             List<GrantedAuthority> authorities = new ArrayList<>();
+            //add all the roles of this user
             authorities.add(new SimpleGrantedAuthority(user.getUserId()));
             return new UsernamePasswordAuthenticationToken(userId,password,authorities);
         }else{
