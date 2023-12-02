@@ -22,8 +22,7 @@ public class UserDao {
     public User getUserByUserId(String userId){
         User user = null;
         for(User userInList: userList){
-            if(userInList.getUserId().equals(userId) &&
-                    userInList.getPassword().equals(userInList.getPassword())){
+            if(userInList.getUserId().equals(userId)){
                 user = userInList;
             }
         }
